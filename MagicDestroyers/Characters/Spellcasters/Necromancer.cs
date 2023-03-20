@@ -24,13 +24,13 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return abilityPoints;
+                return this.abilityPoints;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    abilityPoints = value;
+                    this.abilityPoints = value;
                 }
                 else
                 {
@@ -43,13 +43,13 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return healthPoints;
+                return this.healthPoints;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    healthPoints = value;
+                    this.healthPoints = value;
                 }
                 else
                 {
@@ -62,13 +62,13 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return level;
+                return this.level;
             }
             set
             {
                 if (value >= 0)
                 {
-                    level = value;
+                    this.level = value;
                 }
             }
         }
@@ -77,13 +77,13 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return faction;
+                return this.faction;
             }
             set
             {
                 if (value == "Melee" || value == "SpellCasters")
                 {
-                    faction = value;
+                    this.faction = value;
                 }
                 else
                 {
@@ -96,13 +96,13 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return name;
+                return this.name;
             }
             set
             {
                 if (value.Length >= 3 && value.Length <= 16)
                 {
-                    name = value;
+                    this.name = value;
                 }
                 else
                 {
@@ -115,11 +115,11 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return bodyArmor;
+                return this.bodyArmor;
             }
             set
             {
-                bodyArmor = value;
+                this.bodyArmor = value;
             }
         }
 
@@ -127,11 +127,11 @@ namespace MagicDestroyers.Characters.Spellcasters
         {
             get
             {
-                return weapon;
+                return this.weapon;
             }
             set
             {
-                weapon = value;
+                this.weapon = value;
             }
         }
 
