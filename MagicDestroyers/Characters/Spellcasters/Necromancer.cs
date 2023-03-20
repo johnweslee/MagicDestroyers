@@ -136,26 +136,14 @@ namespace MagicDestroyers.Characters.Spellcasters
             }
         }
 
-        public Necromancer()
+        public Necromancer() : this("Necromancer", 0)
         {
-            this.AbilityPoints = 100;
-            this.HealthPoints = 100;
-            this.Level = 100;
-            this.Faction = "SpellCasters";
-            this.Name = "Necromancer";
-            this.BodyArmor = new LeatherLightVest();
-            this.Weapon = new Sword();
+            
         }
 
-        public Necromancer(string name, int level)
+        public Necromancer(string name, int level) : this(name, level, 100)
         {
-            this.AbilityPoints = 100;
-            this.HealthPoints = 100;
-            this.Level = level;
-            this.Faction = "SpellCasters";
-            this.Name = name;
-            this.BodyArmor = new LeatherLightVest();
-            this.Weapon = new Sword();
+            
         }
 
         public Necromancer(string name, int level, int healthPoints)

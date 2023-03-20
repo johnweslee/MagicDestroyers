@@ -135,26 +135,14 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-        public Knight()
+        public Knight() : this("Knight", 0)
         {
-            this.AbilityPoints = 100;
-            this.HealthPoints = 100;
-            this.Level = 100;
-            this.Faction = "Melee";
-            this.Name = "Knight";
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Hammer();
+            
         }
 
-        public Knight(string name, int level)
+        public Knight(string name, int level) : this(name, level, 100)
         {
-            this.AbilityPoints = 100;
-            this.HealthPoints = 100;
-            this.Level = level;
-            this.Faction = "Melee";
-            this.Name = name;
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Hammer();
+            
         }
 
         public Knight(string name, int level, int healthPoints)

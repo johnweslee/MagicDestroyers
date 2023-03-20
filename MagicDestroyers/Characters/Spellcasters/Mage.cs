@@ -135,21 +135,20 @@ namespace MagicDestroyers.Characters.Spellcasters
             }
         }
 
-        public Mage()
+        public Mage() : this("Mage", 0)
         {
-            this.AbilityPoints = 100;
-            this.HealthPoints = 100;
-            this.Level = 100;
-            this.Faction = "SpellCasters";
-            this.Name = "Mage";
-            this.BodyArmor = new ClothRobe();
-            this.Weapon = new Staff();
+            
         }
 
-        public Mage(string name, int level)
+        public Mage(string name, int level) : this(name, level, 100)
+        {
+            
+        }
+
+        public Mage(string name, int level, int healthPoints)
         {
             this.AbilityPoints = 100;
-            this.HealthPoints = 100;
+            this.HealthPoints = healthPoints;
             this.Level = level;
             this.Faction = "SpellCasters";
             this.Name = name;
