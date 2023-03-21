@@ -1,4 +1,5 @@
 ﻿using MagicDestroyers.Equipment.Armors.Leather;
+using MagicDestroyers.Equipment.Armors.Light;
 using MagicDestroyers.Equipment.Weapons.Sharp;
 using System;
 using System.Collections.Generic;
@@ -137,7 +138,35 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public Necromancer()
         {
+            this.AbilityPoints = 100;
+            this.HealthPoints = 100;
+            this.Level = 100;
+            this.Faction = "SpellCasters";
+            this.Name = "Necromancer";
+            this.BodyArmor = new LeatherLightVest();
+            this.Weapon = new Sword();
+        }
 
+        public Necromancer(string name, int level)
+        {
+            this.AbilityPoints = 100;
+            this.HealthPoints = 100;
+            this.Level = level;
+            this.Faction = "SpellCasters";
+            this.Name = name;
+            this.BodyArmor = new LeatherLightVest();
+            this.Weapon = new Sword();
+        }
+
+        public Necromancer(string name, int level, int healthPoints)
+        {
+            this.AbilityPoints = 100;
+            this.HealthPoints = healthPoints;
+            this.Level = level;
+            this.Faction = "SpellCasters";
+            this.Name = name;
+            this.BodyArmor = new LeatherLightVest();
+            this.Weapon = new Sword();
         }
 
         public void ShadowRage()

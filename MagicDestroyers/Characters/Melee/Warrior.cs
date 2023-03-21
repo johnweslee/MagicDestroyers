@@ -136,7 +136,35 @@ namespace MagicDestroyers.Characters.Melee
 
         public Warrior()
         {
+            this.AbilityPoints = 100;
+            this.HealthPoints = 100;
+            this.Level = 100;
+            this.Faction = "Melee";
+            this.Name = "Warrior";
+            this.BodyArmor = new Chainlink();
+            this.Weapon = new Axe();
+        }
 
+        public Warrior(string name, int level)
+        {
+            this.AbilityPoints = 100;
+            this.HealthPoints = 100;
+            this.Level = level;
+            this.Faction = "Melee";
+            this.Name = name;
+            this.BodyArmor = new Chainlink();
+            this.Weapon = new Axe();
+        }
+
+        public Warrior(string name, int level, int healthPoints)
+        {
+            this.AbilityPoints = 100;
+            this.HealthPoints = healthPoints;
+            this.Level = level;
+            this.Faction = "Melee";
+            this.Name = name;
+            this.BodyArmor = new Chainlink();
+            this.Weapon = new Axe();
         }
 
         public void Strike()
