@@ -8,6 +8,8 @@ namespace MagicDestroyers.Equipment.Armors.Light
 {
     public class ClothRobe
     {
+        private const int DEFAULT_ARMOR_POINTS = 100;
+
         private int armorPoints;
 
         public int Armorpoints
@@ -28,9 +30,14 @@ namespace MagicDestroyers.Equipment.Armors.Light
                 }
             }
         }
-        public ClothRobe()
+        public ClothRobe() : this(DEFAULT_ARMOR_POINTS)
         {
 
+        }
+
+        public ClothRobe(int armorPoints)
+        {
+            this.armorPoints = armorPoints;
         }
     }
 }

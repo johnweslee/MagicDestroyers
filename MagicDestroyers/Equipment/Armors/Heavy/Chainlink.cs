@@ -8,6 +8,8 @@ namespace MagicDestroyers.Equipment.Armors.Heavy
 {
     public class Chainlink
     {
+        private const int DEFAULT_ARMOR_POINTS = 100;
+
         private int armorPoints;
 
         public int Armorpoints
@@ -29,9 +31,14 @@ namespace MagicDestroyers.Equipment.Armors.Heavy
             }
         }
 
-        public Chainlink()
+        public Chainlink() : this(DEFAULT_ARMOR_POINTS)
         {
 
+        }
+
+        public Chainlink(int armorPoints)
+        {
+            this.armorPoints = armorPoints;
         }
     }
 }

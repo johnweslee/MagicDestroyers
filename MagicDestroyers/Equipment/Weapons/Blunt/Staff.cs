@@ -8,6 +8,8 @@ namespace MagicDestroyers.Equipment.Weapons.Blunt
 {
     public class Staff
     {
+        private const int DEFAULT_DAMAGE_POINTS = 10;
+
         private int damagePoints;
 
         public int DamagePoints
@@ -29,9 +31,14 @@ namespace MagicDestroyers.Equipment.Weapons.Blunt
             }
         }
 
-        public Staff()
+        public Staff() : this(DEFAULT_DAMAGE_POINTS)
         {
 
+        }
+
+        public Staff(int damagePoints)
+        {
+            this.damagePoints = damagePoints;
         }
 
         public void Empower()
