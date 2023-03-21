@@ -1,15 +1,21 @@
 ﻿using MagicDestroyers.Equipment.Armors.Leather;
 using MagicDestroyers.Equipment.Weapons.Blunt;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
     public class Druid
     {
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_LEVEL = 0;
+
+        private const string DEFAULT_FACTION = "SpellCasters";
+        private const string DEFAULT_NAME = "Druid";
+
+        private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
+        private readonly Staff DEFAULT_WEAPON = new Staff();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
@@ -135,25 +141,25 @@ namespace MagicDestroyers.Characters.Spellcasters
             }
         }
 
-        public Druid() : this("Druid", 0)
+        public Druid() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
             
         }
 
-        public Druid(string name, int level) : this(name, level, 100)
+        public Druid(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Druid(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = 100;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
-            this.Faction = "SpellCasters";
+            this.Faction = DEFAULT_FACTION;
             this.Name = name;
-            this.BodyArmor = new LeatherLightVest();
-            this.Weapon = new Staff();
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void MoonFire()
