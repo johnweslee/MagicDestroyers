@@ -8,6 +8,8 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
 {
     public class Sword
     {
+        private const int DEFAULT_DAMAGE_POINTS = 10;
+
         private int damagePoints;
 
         public int DamagePoints
@@ -29,9 +31,14 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
             }
         }
 
-        public Sword()
+        public Sword() : this(DEFAULT_DAMAGE_POINTS)
         {
 
+        }
+
+        public Sword(int damagePoints)
+        {
+            this.damagePoints = damagePoints;
         }
 
         public void Bloodthirst()

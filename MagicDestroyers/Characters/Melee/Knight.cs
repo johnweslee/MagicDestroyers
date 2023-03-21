@@ -1,15 +1,21 @@
 ﻿using MagicDestroyers.Equipment.Armors.Heavy;
 using MagicDestroyers.Equipment.Weapons.Blunt;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Knight
     {
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_LEVEL = 0;
+
+        private const string DEFAULT_FACTION = "Melee";
+        private const string DEFAULT_NAME = "Knight";
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Hammer DEFAULT_WEAPON = new Hammer();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
@@ -135,25 +141,25 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-        public Knight() : this("Knight", 0)
+        public Knight() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
             
         }
 
-        public Knight(string name, int level) : this(name, level, 100)
+        public Knight(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Knight(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = 100;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
-            this.Faction = "Melee";
+            this.Faction = DEFAULT_FACTION;
             this.Name = name;
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Hammer();
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void HolyBow()

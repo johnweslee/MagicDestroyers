@@ -1,16 +1,21 @@
 ﻿using MagicDestroyers.Equipment.Armors.Leather;
 using MagicDestroyers.Equipment.Weapons.Sharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Assassin
     {
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_LEVEL = 0;
+
+        private const string DEFAULT_FACTION = "Melee";
+        private const string DEFAULT_NAME = "Assassin";
+
+        private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
+        private readonly Sword DEFAULT_WEAPON = new Sword();
+        
         private int abilityPoints;
         private int healthPoints;
         private int level;
@@ -137,25 +142,25 @@ namespace MagicDestroyers.Characters.Melee
         }
 
 
-        public Assassin() : this("Assassin", 0)
+        public Assassin() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
 
         }
 
-        public Assassin(string name, int level) : this(name, level, 100)
+        public Assassin(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Assassin(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = 100;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
-            this.Faction = "Melee";
+            this.Faction = DEFAULT_FACTION;
             this.Name = name;
-            this.BodyArmor = new LeatherLightVest();
-            this.Weapon = new Sword();
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
     }
 
         public void Raze()

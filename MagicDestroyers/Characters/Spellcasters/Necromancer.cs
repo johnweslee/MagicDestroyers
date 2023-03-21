@@ -1,16 +1,21 @@
 ﻿using MagicDestroyers.Equipment.Armors.Leather;
-using MagicDestroyers.Equipment.Armors.Light;
 using MagicDestroyers.Equipment.Weapons.Sharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
     public class Necromancer
     {
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_LEVEL = 0;
+
+        private const string DEFAULT_FACTION = "SpellCasters";
+        private const string DEFAULT_NAME = "Necromancer";
+
+        private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
+        private readonly Sword DEFAULT_WEAPON = new Sword();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
@@ -136,25 +141,25 @@ namespace MagicDestroyers.Characters.Spellcasters
             }
         }
 
-        public Necromancer() : this("Necromancer", 0)
+        public Necromancer() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
             
         }
 
-        public Necromancer(string name, int level) : this(name, level, 100)
+        public Necromancer(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Necromancer(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = 100;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
-            this.Faction = "SpellCasters";
+            this.Faction = DEFAULT_FACTION;
             this.Name = name;
-            this.BodyArmor = new LeatherLightVest();
-            this.Weapon = new Sword();
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void ShadowRage()

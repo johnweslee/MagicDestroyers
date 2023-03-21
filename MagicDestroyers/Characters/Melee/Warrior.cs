@@ -1,15 +1,21 @@
 ﻿using MagicDestroyers.Equipment.Armors.Heavy;
 using MagicDestroyers.Equipment.Weapons.Sharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Warrior
     {
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_LEVEL = 0;
+
+        private const string DEFAULT_FACTION = "Melee";
+        private const string DEFAULT_NAME = "Warrior";
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Axe DEFAULT_WEAPON = new Axe();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
@@ -134,25 +140,25 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-        public Warrior() : this("Warrior", 0)
+        public Warrior() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
             
         }
 
-        public Warrior(string name, int level) : this(name, level, 100)
+        public Warrior(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Warrior(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = 100;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
-            this.Faction = "Melee";
+            this.Faction = DEFAULT_FACTION;
             this.Name = name;
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Axe();
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void Strike()
