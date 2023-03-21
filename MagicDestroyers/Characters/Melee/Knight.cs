@@ -1,4 +1,5 @@
-﻿using MagicDestroyers.Equipment.Armors.Heavy;
+﻿using MagicDestroyers.Enumerations;
+using MagicDestroyers.Equipment.Armors.Heavy;
 using MagicDestroyers.Equipment.Weapons.Blunt;
 using System;
 
@@ -10,7 +11,7 @@ namespace MagicDestroyers.Characters.Melee
         private const int DEFAULT_HEALTH_POINTS = 100;
         private const int DEFAULT_LEVEL = 0;
 
-        private const string DEFAULT_FACTION = "Melee";
+        private const Faction DEFAULT_FACTION = Faction.Melee;
         private const string DEFAULT_NAME = "Knight";
 
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
@@ -20,7 +21,7 @@ namespace MagicDestroyers.Characters.Melee
         private int healthPoints;
         private int level;
 
-        private string faction;
+        private Faction faction;
         private string name;
 
         private Chainlink bodyArmor;
@@ -79,7 +80,7 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-        public string Faction
+        public Faction Faction
         {
             get
             {
@@ -87,14 +88,7 @@ namespace MagicDestroyers.Characters.Melee
             }
             set
             {
-                if (value == "Melee" || value == "SpellCasters")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "Faction should be either Melee or SpellCasters.");
-                }
+                this.faction = value;
             }
         }
 
