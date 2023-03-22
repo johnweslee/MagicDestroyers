@@ -5,7 +5,7 @@ using System;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
-    public class Necromancer : Character
+    public class Necromancer : Spellcaster
     {
         private const int DEFAULT_ABILITY_POINTS = 100;
         private const int DEFAULT_HEALTH_POINTS = 100;
@@ -17,29 +17,8 @@ namespace MagicDestroyers.Characters.Spellcasters
         private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private int abilityPoints;
-
         private LeatherLightVest bodyArmor;
         private Sword weapon;
-
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 100)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Invalid ability points! It should be between the range 0 to 100.");
-                }
-            }
-        }
 
         public LeatherLightVest BodyArmor
         {
@@ -77,7 +56,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public Necromancer(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.ManaPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
             this.Faction = DEFAULT_FACTION;
