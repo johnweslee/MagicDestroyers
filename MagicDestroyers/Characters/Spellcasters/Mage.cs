@@ -5,7 +5,7 @@ using System;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
-    public class Mage : Character
+    public class Mage : Spellcaster
     {
         private const int DEFAULT_ABILITY_POINTS = 100;
         private const int DEFAULT_HEALTH_POINTS = 100;
@@ -17,29 +17,8 @@ namespace MagicDestroyers.Characters.Spellcasters
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
-        private int abilityPoints;
-
         private ClothRobe bodyArmor;
         private Staff weapon;
-
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 100)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Invalid ability points! It should be between the range 0 to 100.");
-                }
-            }
-        }
 
         public ClothRobe BodyArmor
         {
@@ -77,7 +56,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public Mage(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.ManaPoints = DEFAULT_ABILITY_POINTS;
             this.HealthPoints = healthPoints;
             this.Level = level;
             this.Faction = DEFAULT_FACTION;

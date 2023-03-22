@@ -5,7 +5,7 @@ using System;
 
 namespace MagicDestroyers.Characters.Melee
 {
-    public class Knight : Character
+    public class Knight : Melee
     {
         private const int DEFAULT_ABILITY_POINTS = 100;
         private const int DEFAULT_HEALTH_POINTS = 100;
@@ -17,29 +17,8 @@ namespace MagicDestroyers.Characters.Melee
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
         private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
-        private int abilityPoints;
-
         private Chainlink bodyArmor;
         private Hammer weapon;
-
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 100)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "Invalid ability points! It should be between the range 0 to 100.");
-                }
-            }
-        }
 
         public Chainlink BodyArmor
         {
