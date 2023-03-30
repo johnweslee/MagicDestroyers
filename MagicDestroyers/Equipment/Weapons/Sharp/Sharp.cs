@@ -1,6 +1,6 @@
 ﻿namespace MagicDestroyers.Equipment.Weapons.Sharp
 {
-    public class Sharp : Weapon
+    public abstract class Sharp : Weapon
     {
     }
 }
