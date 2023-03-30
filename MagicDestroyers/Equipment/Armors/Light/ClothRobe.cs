@@ -13,5 +13,10 @@
         {
             this.ArmorPoints = armorPoints;
         }
+
+        public override void Buff()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
