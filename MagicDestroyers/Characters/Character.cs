@@ -2,7 +2,7 @@
 
 namespace MagicDestroyers.Characters
 {
-    public class Character
+    public abstract class Character
     {
         private int healthPoints;
         private int level;

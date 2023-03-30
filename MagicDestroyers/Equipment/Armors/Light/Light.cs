@@ -1,6 +1,6 @@
 ﻿namespace MagicDestroyers.Equipment.Armors.Light
 {
-    public class Light : Armor
+    public abstrcat class Light : Armor
     {
     }
 }

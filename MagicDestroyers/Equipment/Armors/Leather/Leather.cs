@@ -1,6 +1,6 @@
 ﻿namespace MagicDestroyers.Equipment.Armors.Leather
 {
-    public class Leather : Armor
+    public abstract class Leather : Armor
     {
     }
 }
