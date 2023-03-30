@@ -1,6 +1,8 @@
-﻿namespace MagicDestroyers.Equipment.Weapons
+﻿using MagicDestroyers.Equipment.Interfaces;
+
+namespace MagicDestroyers.Equipment.Weapons
 {
-    public abstract class Weapon
+    public abstract class Weapon : IBuff
     {
         private int damagePoints;
 
@@ -22,5 +24,7 @@
                 }
             }
         }
+
+        public abstract void Buff();
     }
 }

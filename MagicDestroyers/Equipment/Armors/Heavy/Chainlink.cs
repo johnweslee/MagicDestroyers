@@ -19,5 +19,10 @@ namespace MagicDestroyers.Equipment.Armors.Heavy
         {
             this.ArmorPoints = armorPoints;
         }
+
+        public override void Buff()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

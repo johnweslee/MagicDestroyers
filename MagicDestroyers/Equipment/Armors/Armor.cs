@@ -1,6 +1,8 @@
-﻿namespace MagicDestroyers.Equipment.Armors
+﻿using MagicDestroyers.Equipment.Interfaces;
+
+namespace MagicDestroyers.Equipment.Armors
 {
-    public  abstract class Armor
+    public  abstract class Armor : IBuff
     {
         private int armorPoints;
 
@@ -22,5 +24,7 @@
                 }
             }
         }
+
+        public abstract void Buff();
     }
 }

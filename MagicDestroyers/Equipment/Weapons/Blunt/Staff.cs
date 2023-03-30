@@ -14,6 +14,11 @@
             this.DamagePoints = damagePoints;
         }
 
+        public override void Buff()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Empower()
         {
             throw new NotImplementedException();

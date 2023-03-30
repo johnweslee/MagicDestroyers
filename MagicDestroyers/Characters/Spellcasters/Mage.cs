@@ -1,7 +1,6 @@
 ﻿using MagicDestroyers.Enumerations;
 using MagicDestroyers.Equipment.Armors.Light;
 using MagicDestroyers.Equipment.Weapons.Blunt;
-using System;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
@@ -76,6 +75,21 @@ namespace MagicDestroyers.Characters.Spellcasters
         }
 
         public void Meditation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Defend()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SpecialAttack()
         {
             throw new NotImplementedException();
         }

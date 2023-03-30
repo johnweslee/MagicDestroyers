@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-namespace MagicDestroyers.Equipment.Armors.Light
+﻿namespace MagicDestroyers.Equipment.Armors.Light
 {
     public class ClothRobe : Light
     {

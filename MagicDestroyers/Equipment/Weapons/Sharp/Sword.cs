@@ -18,5 +18,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public override void Buff()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
