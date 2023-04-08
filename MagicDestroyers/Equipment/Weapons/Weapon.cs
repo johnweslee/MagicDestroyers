@@ -2,7 +2,7 @@
 
 namespace MagicDestroyers.Equipment.Weapons
 {
-    public abstract class Weapon : IBuff
+    public abstract class Weapon : ISpecialAbility
     {
         private int damagePoints;
 
@@ -25,6 +25,6 @@ namespace MagicDestroyers.Equipment.Weapons
             }
         }
 
-        public abstract void Buff();
+        public abstract void SpecialAbility();
     }
 }

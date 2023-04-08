@@ -1,4 +1,6 @@
-﻿namespace MagicDestroyers.Equipment.Weapons.Blunt
+﻿using MagicDestroyers.Equipment.Interfaces;
+
+namespace MagicDestroyers.Equipment.Weapons.Blunt
 {
     public class Hammer : Blunt
     {
@@ -14,9 +16,9 @@
             this.DamagePoints = damagePoints;
         }
 
-        public override void Buff()
+        public override void SpecialAbility()
         {
-            throw new NotImplementedException();
+            this.Stun();
         }
 
         public void Stun()

@@ -6,7 +6,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 {
     public class Druid : Spellcaster
     {
-        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_MANA_POINTS = 100;
         private const int DEFAULT_HEALTH_POINTS = 100;
         private const int DEFAULT_LEVEL = 0;
 
@@ -15,33 +15,6 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
         private readonly Staff DEFAULT_WEAPON = new Staff();
-        
-        private LeatherLightVest bodyArmor;
-        private Staff weapon;
-
-        public LeatherLightVest BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-        public Staff Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public Druid() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -55,13 +28,13 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public Druid(string name, int level, int healthPoints)
         {
-            this.ManaPoints = DEFAULT_ABILITY_POINTS;
-            this.HealthPoints = healthPoints;
-            this.Level = level;
-            this.Faction = DEFAULT_FACTION;
-            this.Name = name;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.ManaPoints = DEFAULT_MANA_POINTS;
+            base.HealthPoints = healthPoints;
+            base.Level = level;
+            base.Faction = DEFAULT_FACTION;
+            base.Name = name;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void MoonFire()
@@ -81,17 +54,17 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.MoonFire();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.OneWithTheNature();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.Starburst();
         }
     }
 }

@@ -17,33 +17,6 @@ namespace MagicDestroyers.Characters.Melee
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
         private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
-        private Chainlink bodyArmor;
-        private Hammer weapon;
-
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-        private Hammer Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
-
         public Knight() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
             
@@ -56,13 +29,13 @@ namespace MagicDestroyers.Characters.Melee
 
         public Knight(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.HealthPoints = healthPoints;
-            this.Level = level;
-            this.Faction = DEFAULT_FACTION;
-            this.Name = name;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.HealthPoints = healthPoints;
+            base.Level = level;
+            base.Faction = DEFAULT_FACTION;
+            base.Name = name;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void HolyBow()
@@ -82,17 +55,17 @@ namespace MagicDestroyers.Characters.Melee
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.HolyBow();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.RighteousWings();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.PurifySoul();
         }
     }
 }

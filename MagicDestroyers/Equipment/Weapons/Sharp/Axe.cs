@@ -14,9 +14,9 @@
             this.DamagePoints = damagePoints;
         }
 
-        public override void Buff()
+        public override void SpecialAbility()
         {
-            throw new NotImplementedException();
+            this.HackNSlash();
         }
 
         public void HackNSlash()

@@ -19,9 +19,9 @@
             throw new NotImplementedException();
         }
 
-        public override void Buff()
+        public override void SpecialAbility()
         {
-            throw new NotImplementedException();
+            this.Bloodthirst();
         }
     }
 }
