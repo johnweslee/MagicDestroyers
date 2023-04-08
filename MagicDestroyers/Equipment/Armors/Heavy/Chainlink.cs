@@ -12,7 +12,6 @@ namespace MagicDestroyers.Equipment.Armors.Heavy
 
         public Chainlink() : this(DEFAULT_ARMOR_POINTS)
         {
-
         }
 
         public Chainlink(int armorPoints)

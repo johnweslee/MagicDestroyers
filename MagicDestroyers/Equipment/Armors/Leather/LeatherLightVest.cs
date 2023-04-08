@@ -12,7 +12,6 @@ namespace MagicDestroyers.Equipment.Armors.Leather
 
         public LeatherLightVest() : this(DEFAULT_ARMOR_POINTS)
         {
-
         }
 
         public LeatherLightVest(int armorPoints)

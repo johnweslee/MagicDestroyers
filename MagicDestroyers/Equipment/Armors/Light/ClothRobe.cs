@@ -6,7 +6,6 @@
 
         public ClothRobe() : this(DEFAULT_ARMOR_POINTS)
         {
-
         }
 
         public ClothRobe(int armorPoints)
