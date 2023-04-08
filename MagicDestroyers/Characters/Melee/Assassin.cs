@@ -1,7 +1,6 @@
 ﻿using MagicDestroyers.Enumerations;
 using MagicDestroyers.Equipment.Armors.Leather;
 using MagicDestroyers.Equipment.Weapons.Sharp;
-using System;
 
 namespace MagicDestroyers.Characters.Melee
 {
@@ -16,33 +15,6 @@ namespace MagicDestroyers.Characters.Melee
 
         private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
-        
-        private LeatherLightVest bodyArmor;
-        private Sword weapon;
-
-        public LeatherLightVest BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-        public Sword Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public Assassin() : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -56,13 +28,13 @@ namespace MagicDestroyers.Characters.Melee
 
         public Assassin(string name, int level, int healthPoints)
         {
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.HealthPoints = healthPoints;
-            this.Level = level;
-            this.Faction = DEFAULT_FACTION;
-            this.Name = name;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.HealthPoints = healthPoints;
+            base.Level = level;
+            base.Faction = DEFAULT_FACTION;
+            base.Name = name;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
     }
 
         public void Raze()
@@ -82,17 +54,17 @@ namespace MagicDestroyers.Characters.Melee
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.Raze();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.Survival();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.BleedToDeath();
         }
     }
 }

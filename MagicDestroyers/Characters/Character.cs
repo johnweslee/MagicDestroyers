@@ -1,5 +1,7 @@
 ﻿using MagicDestroyers.Characters.Interfaces;
 using MagicDestroyers.Enumerations;
+using MagicDestroyers.Equipment.Armors;
+using MagicDestroyers.Equipment.Weapons;
 
 namespace MagicDestroyers.Characters
 {
@@ -9,7 +11,11 @@ namespace MagicDestroyers.Characters
         private int level;
 
         private Faction faction;
+
         private string name;
+
+        private Armor bodyArmor;
+        private Weapon weapon;
 
         public int HealthPoints
         {
@@ -73,6 +79,30 @@ namespace MagicDestroyers.Characters
                 {
                     throw new ArgumentException(string.Empty, "Invalid name! The length of the name shoulde be between 3 to 16 characters.");
                 }
+            }
+        }
+
+        public Armor BodyArmor
+        {
+            get
+            {
+                return this.bodyArmor;
+            }
+            set
+            {
+                this.bodyArmor = value;
+            }
+        }
+
+        public Weapon Weapon
+        {
+            get
+            {
+                return this.weapon;
+            }
+            set
+            {
+                this.weapon = value;
             }
         }
 
