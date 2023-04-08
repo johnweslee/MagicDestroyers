@@ -8,28 +8,44 @@ namespace MagicDestroyers
     {
         public static void Main()
         {
-            //Console.WriteLine("Project Magic Destroyers");
+            bool gameOver = false;
 
-            //Initialize Melee
-            Character assaassin = new Assassin();
-            Character knight = new Knight();
-            Character warrior = new Warrior();
+            List<Character> characters = new List<Character>()
+            {
+                new Assassin(), new Knight(), new Warrior(),
+                new Druid(), new Mage(), new Necromancer()
+            };
 
-            //Initialize SpellCasters
-            Character druid = new Druid();
-            Character mage = new Mage();
-            Character necromancer = new Necromancer();
+            List<Melee> teamMelee = new List<Melee>();
+            List<Spellcaster> teamSpellCaster = new List<Spellcaster>();
 
-            List<Character> teamMelee = new List<Character>();
-            List<Character> teamSpellcaster = new List<Character>();
+            foreach (Character character in characters)
+            {
+                if (character is Melee)
+                {
+                    teamMelee.Add((Melee)character);
+                }
+                else if (character is Spellcaster)
+                {
+                    teamSpellCaster.Add((Spellcaster)character);
+                }
+            }
 
-            teamMelee.Add(assaassin);
-            teamMelee.Add(knight);
-            teamMelee.Add(warrior);
+            while (!gameOver)
+            {
+                //select randon melee character
+                //select random spellcaster character
 
-            teamSpellcaster.Add(druid);
-            teamSpellcaster.Add(mage);
-            teamSpellcaster.Add(necromancer);
+                //melee attack spellcaster
+                //check if character is dead then remove from team
+                //get another character
+
+                //spell attack melee
+                //...same logic as melee
+                //...same logic as melee
+
+                //if all character die in team then game over
+            }
         }
     }
 }
