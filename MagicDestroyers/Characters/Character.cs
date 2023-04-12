@@ -9,10 +9,13 @@ namespace MagicDestroyers.Characters
     {
         private int healthPoints;
         private int level;
+        private int score;
 
-        private Faction faction;
+        private bool isAlive;
 
         private string name;
+
+        private Faction faction;
 
         private Armor bodyArmor;
         private Weapon weapon;
@@ -106,8 +109,67 @@ namespace MagicDestroyers.Characters
             }
         }
 
-        public abstract void Attack();
-        public abstract void Defend();
-        public abstract void SpecialAttack();
+        public bool ISAlive
+        {
+            get
+            {
+                return this.isAlive;
+            }
+            set
+            {
+                this.isAlive = value;
+            }
+        }
+
+        public int Score {
+            get
+            {
+                return this.score;
+            }
+            set
+            {
+                this.score = value;
+            }
+        }
+
+        public abstract int Attack();
+        public abstract int Defend();
+        public abstract int SpecialAttack();
+
+        public void takeDamage(int damage, string attackerName)
+        {
+            if(this.Defend() < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + this.Defend();
+                if(this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Haha! Your damage was not enough to harm me");
+            }
+
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} received damage {damage} from {attackerName}, and is dead now!");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} received damage {damage} from {attackerName}, and now has {this.healthPoints} health points");
+            }
+        }
+
+        public void WonBattle()
+        {
+            this.score++;
+
+            if(this.score % 10 == 0)
+            {
+                this.level++;
+            }
+        }
     }
 }

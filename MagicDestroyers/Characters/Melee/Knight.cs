@@ -36,36 +36,38 @@ namespace MagicDestroyers.Characters.Melee
             base.Name = name;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.ISAlive = true;
+            base.Score = 0;
         }
 
-        public void HolyBow()
+        public int HolyBow()
+        {
+            return base.Weapon.DamagePoints + 10;
+        }
+
+        public int PurifySoul()
         {
             throw new NotImplementedException();
         }
 
-        public void PurifySoul()
+        public int RighteousWings()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints + 5;
         }
 
-        public void RighteousWings()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.HolyBow();
         }
 
-        public override void Attack()
+        public override int Defend()
         {
-            this.HolyBow();
+            return this.RighteousWings();
         }
 
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            this.RighteousWings();
-        }
-
-        public override void SpecialAttack()
-        {
-            this.PurifySoul();
+            return this.PurifySoul();
         }
     }
 }

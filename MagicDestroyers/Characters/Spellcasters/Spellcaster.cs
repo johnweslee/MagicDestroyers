@@ -8,13 +8,13 @@
         {
             get
             {
-                return this.ManaPoints;
+                return this.manaPoints;
             }
             set
             {
                 if (value >= 0 && value <= 100)
                 {
-                    this.ManaPoints = value;
+                    this.manaPoints = value;
                 }
                 else
                 {

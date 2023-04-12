@@ -8,6 +8,9 @@ namespace MagicDestroyers
     {
         public static void Main()
         {
+            Random random = new Random();
+
+            int currentMelee = 0, currentSpellCaster = 0;
             bool gameOver = false;
 
             List<Character> characters = new List<Character>()
@@ -33,18 +36,44 @@ namespace MagicDestroyers
 
             while (!gameOver)
             {
-                //select randon melee character
-                //select random spellcaster character
+                currentMelee = random.Next(0, teamMelee.Count);
+                currentSpellCaster = random.Next(0, teamSpellCaster.Count);
 
-                //melee attack spellcaster
-                //check if character is dead then remove from team
-                //get another character
+                teamSpellCaster[currentSpellCaster].takeDamage(teamMelee[currentMelee].Attack(), teamMelee[currentMelee].Name);
 
-                //spell attack melee
-                //...same logic as melee
-                //...same logic as melee
+                if (!teamSpellCaster[currentSpellCaster].ISAlive)
+                {
+                    teamMelee[currentMelee].WonBattle();
+                    teamSpellCaster.Remove(teamSpellCaster[currentSpellCaster]);
 
-                //if all character die in team then game over
+                    if(teamSpellCaster.Count == 0)
+                    {
+                        Console.WriteLine("Melee team wins");
+                        break;
+                    }
+                    else
+                    {
+                        currentSpellCaster = random.Next(0, teamSpellCaster.Count);
+                    }
+                }
+
+                teamMelee[currentMelee].takeDamage(teamSpellCaster[currentSpellCaster].Attack(), teamSpellCaster[currentSpellCaster].Name);
+
+                if (!teamMelee[currentMelee].ISAlive)
+                {
+                    teamSpellCaster[currentSpellCaster].WonBattle();
+                    teamMelee.Remove(teamMelee[currentMelee]);
+
+                    if (teamMelee.Count == 0)
+                    {
+                        Console.WriteLine("SpellCaster team wins");
+                        break;
+                    }
+                    else
+                    {
+                        currentMelee = random.Next(0, teamMelee.Count);
+                    }
+                }
             }
         }
     }

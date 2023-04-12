@@ -36,36 +36,38 @@ namespace MagicDestroyers.Characters.Melee
             base.Name = name;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.ISAlive = true;
+            base.Score = 0;
         }
 
-        public void Strike()
+        public int Strike()
+        {
+            return base.Weapon.DamagePoints + 10;
+        }
+
+        public int Execute()
         {
             throw new NotImplementedException();
         }
 
-        public void Execute()
+        public int SkinHarden()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints + 5;
         }
 
-        public void SkinHarden()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.Strike();
         }
 
-        public override void Attack()
+        public override int Defend()
         {
-            this.Strike();
+            return this.SkinHarden();
         }
 
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            this.SkinHarden();
-        }
-
-        public override void SpecialAttack()
-        {
-            this.Execute();
+            return this.Execute();
         }
     }
 }
