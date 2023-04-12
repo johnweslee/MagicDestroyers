@@ -10,7 +10,9 @@ namespace MagicDestroyers
         {
             Random random = new Random();
 
-            int currentMelee = 0, currentSpellCaster = 0;
+            Melee currentMelee;
+            Spellcaster currentSpellCaster;
+
             bool gameOver = false;
 
             List<Character> characters = new List<Character>()
@@ -36,42 +38,40 @@ namespace MagicDestroyers
 
             while (!gameOver)
             {
-                currentMelee = random.Next(0, teamMelee.Count);
-                currentSpellCaster = random.Next(0, teamSpellCaster.Count);
+                currentMelee = teamMelee[random.Next(0, teamMelee.Count)];
+                currentSpellCaster = teamSpellCaster[random.Next(0, teamSpellCaster.Count)];
 
-                teamSpellCaster[currentSpellCaster].takeDamage(teamMelee[currentMelee].Attack(), teamMelee[currentMelee].Name);
-
-                if (!teamSpellCaster[currentSpellCaster].ISAlive)
+                currentSpellCaster.takeDamage(currentMelee.Attack(), currentMelee.Name, currentMelee.GetType().ToString());
+                if (!currentSpellCaster.ISAlive)
                 {
-                    teamMelee[currentMelee].WonBattle();
-                    teamSpellCaster.Remove(teamSpellCaster[currentSpellCaster]);
+                    currentMelee.WonBattle();
+                    teamSpellCaster.Remove(currentSpellCaster);
 
                     if(teamSpellCaster.Count == 0)
                     {
-                        Console.WriteLine("Melee team wins");
+                        MagicDestroyersTools.ColorfulWriteLine("***Melee team wins***", ConsoleColor.Green);
                         break;
                     }
                     else
                     {
-                        currentSpellCaster = random.Next(0, teamSpellCaster.Count);
+                        currentSpellCaster = teamSpellCaster[random.Next(0, teamSpellCaster.Count)];
                     }
                 }
 
-                teamMelee[currentMelee].takeDamage(teamSpellCaster[currentSpellCaster].Attack(), teamSpellCaster[currentSpellCaster].Name);
-
-                if (!teamMelee[currentMelee].ISAlive)
+                currentMelee.takeDamage(currentSpellCaster.Attack(), currentSpellCaster.Name, currentSpellCaster.GetType().ToString());
+                if (!currentMelee.ISAlive)
                 {
-                    teamSpellCaster[currentSpellCaster].WonBattle();
-                    teamMelee.Remove(teamMelee[currentMelee]);
+                    currentSpellCaster.WonBattle();
+                    teamMelee.Remove(currentMelee);
 
                     if (teamMelee.Count == 0)
                     {
-                        Console.WriteLine("SpellCaster team wins");
+                        Console.WriteLine("***SpellCaster team wins***", ConsoleColor.Green);
                         break;
                     }
                     else
                     {
-                        currentMelee = random.Next(0, teamMelee.Count);
+                        currentMelee = teamMelee[random.Next(0, teamMelee.Count)];
                     }
                 }
             }

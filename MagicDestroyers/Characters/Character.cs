@@ -136,7 +136,7 @@ namespace MagicDestroyers.Characters
         public abstract int Defend();
         public abstract int SpecialAttack();
 
-        public void takeDamage(int damage, string attackerName)
+        public void takeDamage(int damage, string attackerName, string type)
         {
             if(this.Defend() < damage)
             {
@@ -145,20 +145,19 @@ namespace MagicDestroyers.Characters
                 {
                     this.isAlive = false;
                 }
-
             }
             else
             {
-                Console.WriteLine("Haha! Your damage was not enough to harm me");
+                Console.WriteLine($"Haha! Hey {attackerName}, your damage was not enough to harm me");
             }
 
             if (!this.isAlive)
             {
-                Console.WriteLine($"{this.name} received damage {damage} from {attackerName}, and is dead now!");
+                MagicDestroyersTools.CharacterSpecificColor($"{this.name} received damage {damage} from {attackerName}, and is dead now!", type);
             }
             else
             {
-                Console.WriteLine($"{this.name} received damage {damage} from {attackerName}, and now has {this.healthPoints} health points");
+                MagicDestroyersTools.CharacterSpecificColor($"{this.name} received damage {damage} from {attackerName}, and now has {this.healthPoints} health points", type);
             }
         }
 
