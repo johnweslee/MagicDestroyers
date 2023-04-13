@@ -1,70 +1,64 @@
-﻿using MagicDestroyers.Enumerations;
-using MagicDestroyers.Equipment.Armors.Leather;
+﻿using MagicDestroyers.Equipment.Armors.Leather;
 using MagicDestroyers.Equipment.Weapons.Sharp;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
     public class Necromancer : Spellcaster
     {
-        private const int DEFAULT_MANA_POINTS = 100;
-        private const int DEFAULT_HEALTH_POINTS = 100;
-        private const int DEFAULT_LEVEL = 0;
-
-        private const Faction DEFAULT_FACTION = Faction.SpellCasters;
-        private const string DEFAULT_NAME = "Necromancer";
-
         private readonly LeatherLightVest DEFAULT_BODY_ARMOR = new LeatherLightVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        public Necromancer() : this(DEFAULT_NAME, DEFAULT_LEVEL)
+        public Necromancer() : this(Constants.Necromancer.DEFAULT_NAME, Constants.Necromancer.DEFAULT_LEVEL)
         {
             
         }
 
-        public Necromancer(string name, int level) : this(name, level, DEFAULT_HEALTH_POINTS)
+        public Necromancer(string name, int level) : this(name, level, Constants.Necromancer.DEFAULT_HEALTH_POINTS)
         {
             
         }
 
         public Necromancer(string name, int level, int healthPoints)
         {
-            base.ManaPoints = DEFAULT_MANA_POINTS;
+            base.ManaPoints = Constants.Necromancer.DEFAULT_MANA_POINTS;
             base.HealthPoints = healthPoints;
             base.Level = level;
-            base.Faction = DEFAULT_FACTION;
+            base.Faction = Constants.Necromancer.DEFAULT_FACTION;
             base.Name = name;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.ISAlive = true;
+            base.Score = 0;
         }
 
-        public void ShadowRage()
+        public int ShadowRage()
+        {
+            return base.Weapon.DamagePoints + 5;
+        }
+
+        public int VampireTouch()
         {
             throw new NotImplementedException();
         }
 
-        public void VampireTouch()
+        public int BoneShiled()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints + 10;
         }
 
-        public void BoneShiled()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.ShadowRage();
         }
 
-        public override void Attack()
+        public override int Defend()
         {
-            this.ShadowRage();
+            return this.BoneShiled();
         }
 
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            this.BoneShiled();
-        }
-
-        public override void SpecialAttack()
-        {
-            this.VampireTouch();
+            return this.VampireTouch();
         }
     }
 }

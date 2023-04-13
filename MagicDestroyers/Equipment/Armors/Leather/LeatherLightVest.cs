@@ -8,7 +8,7 @@ namespace MagicDestroyers.Equipment.Armors.Leather
 {
     public class LeatherLightVest : Leather
     {
-        private const int DEFAULT_ARMOR_POINTS = 100;
+        private const int DEFAULT_ARMOR_POINTS = 10;
 
         public LeatherLightVest() : this(DEFAULT_ARMOR_POINTS)
         {

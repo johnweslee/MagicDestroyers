@@ -2,7 +2,7 @@
 {
     public class Axe : Sharp
     {
-        private const int DEFAULT_DAMAGE_POINTS = 10;
+        private const int DEFAULT_DAMAGE_POINTS = 15;
 
         public Axe() : this(DEFAULT_DAMAGE_POINTS)
         {
